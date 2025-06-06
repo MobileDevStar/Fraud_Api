@@ -1,0 +1,10 @@
+# Ignore virtual environments, caches, and model files
+venv/
+__pycache__/
+*.pyc
+
+# Ignore the actual model—will be fetched at runtime
+models/fraud_detector.h5
+
+# Ignore logs or temp files
+*.log
