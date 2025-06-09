@@ -4,6 +4,8 @@ from PIL import Image
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
 from tensorflow.keras import layers, models
+import keras
+print(tf.__version__, keras.__version__)
 
 def load_dataset(root_dir, img_size=(224,224)):
     X, y = [], []
