@@ -5,7 +5,7 @@ from PIL import Image, UnidentifiedImageError
 from pdf2image import convert_from_bytes
 
 app = FastAPI(title="Fraud Detection API")
-model = load_model("models/fraud_detector.h5")
+model = load_model("models/fraud_detector.1.h5")
 
 @app.post("/score/")
 async def score_receipt(file: UploadFile = File(...)):

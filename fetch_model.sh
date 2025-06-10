@@ -3,8 +3,8 @@
 # Download the model from GitHub Releases if missing.
 
 REPO="MobileDevStar/Fraud_Api"
-TAG="v1.0-model"
-MODEL_FILE="fraud_detector.h5"
+TAG="v1.1-model"
+MODEL_FILE="fraud_detector.1.h5"
 URL="https://github.com/${REPO}/releases/download/${TAG}/${MODEL_FILE}"
 TARGET="models/${MODEL_FILE}"
 
