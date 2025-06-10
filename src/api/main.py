@@ -7,7 +7,7 @@ from pdf2image import convert_from_bytes
 app = FastAPI(title="Fraud Detection API")
 model = load_model("models/fraud_detector.1.h5")
 
-@app.post("/score/")
+@app.post("/verify/")
 async def score_receipt(file: UploadFile = File(...)):
     data = await file.read()
 
@@ -32,8 +32,9 @@ async def score_receipt(file: UploadFile = File(...)):
 
     prob = float(model.predict(x)[0][0])
     score = int(prob * 100)
+    status = "fraud" if score >= 50 else "clear"
 
-    return {"fraud_score": score, "probability": prob}
+    return {"score": score, "probability": prob, "status": status}
 
 if __name__ == "__main__":
     uvicorn.run("src.api.main:app", host="0.0.0.0", port=8000, reload=True)
